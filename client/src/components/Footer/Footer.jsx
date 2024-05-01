@@ -3,7 +3,7 @@ function Footer() {
   return (
     <section className="bg-[#22153B] w-[100%]">
       <div className="2xl:container mx-auto">
-        <div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2 mt-5 h-[40vh] py-5">
+        <div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2  h-[40vh] ">
           <div className="flex flex-col justify-center items-start gap-5">
             <button className="flex flex-col items-center">
               <p className="text-white text-3xl font-bold mr-2">HYPERTRADEX</p>

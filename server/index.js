@@ -4,9 +4,13 @@ const app = express();
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
+const cors = require("cors")
+
 const bcrypt = require("bcrypt");
 
 app.use(express.json());
+
+app.use(cors());
 
 app.get("/test", (req, res) => {
   res.json("working V1");
@@ -116,7 +120,7 @@ app.get("/stocks/user/:user_id", async (req, res) => {
     },
   });
 
-  const { password, ...stock } = stockData;
+  // const { password , ...stock } = stockData;
 
   res.json({ data: stock });
 });
@@ -195,4 +199,6 @@ app.post("/register", async (req, res) => {
   }
 });
 
-app.listen(3003);
+app.listen(3003,()=>{
+  console.log("Connected to 3003")
+});

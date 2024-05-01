@@ -59,12 +59,12 @@ function Header() {
           </button>
           <button
             className="transition duration-300 ease-in-out bg-[#23153C] hover:bg-blue-600 text-white rounded-lg px-3 py-2"
-            onClick={Login}>
+            onClick={Register}>
             Login
           </button>
           <button
             className="transition duration-300 ease-in-out bg-[#23153C] hover:bg-blue-600 text-white rounded-lg px-3 py-2"
-            onClick={Register}>
+            onClick={Login}>
             Register
           </button>
         </div>
