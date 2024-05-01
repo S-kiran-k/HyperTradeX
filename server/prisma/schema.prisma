@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url  	    = env("DATABASE_URL")
+  // uncomment next line if you use Prisma <5.10
+  directUrl = env("DATABASE_URL_UNPOOLED")
+}
+
+model User {
+  user_id  String @unique @default(cuid())
+  username String
+  email    String @unique
+  age      String
+  password String
+  stock    Stock[]
+}
+
+model Stock {
+  stock_id String @unique @default(cuid())
+  name String
+  image_url String
+  price Int
+  recent_selling_price Int  
+  detailStock DetailedStock?
+  user_id  String?
+  user User? @relation(fields:[user_id],references:[user_id])
+}
+
+model DetailedStock {
+  detail_stock_id String @unique @default(cuid())
+  stock_id String @unique
+  stock Stock @relation(fields:[stock_id],references:[stock_id])
+  type String
+  symbol String
+  open Int
+  high Int
+  low Int
+  close Int
+  volume Int
+  lowPriceRange Int
+  highPriceRange Int
+  totalBuyQty Int
+  totalSellQty Int
+  aboutStock String
+}
