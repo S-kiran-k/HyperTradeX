@@ -1,12 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "../components/Header/Header";
 import Home from "../components/Home/Home";
-import Login from "../components/Register/Register";
+import Login from "../components/Login/Login";
 import Portfolio from "../components/Portfolio/Portfolio";
 import Footer from "../components/Footer/Footer";
-import Register from "../components/Login/Login";
+import Register from "../components/Register/Register";
 import Stock from "../components/Stock/Stock";
 import StockDetail from "../components/StockDetail/StockDetail";
+import { Toaster } from 'sonner'
 
 
 function Path() {
@@ -23,6 +24,8 @@ function Path() {
           <Route path="/Portfolio" element={<Portfolio />} />
         </Routes>
         <Footer />
+        <Toaster richColors position="top-right" closeButton />
+
       </BrowserRouter>
     </div>
   );

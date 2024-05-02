@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import NET from "vanta/src/vanta.net";
 import "./home.css";
-import "animate.css";
 import Typed from "typed.js";
 import Flowchart from "../Flowchart/Flowchart";
 
