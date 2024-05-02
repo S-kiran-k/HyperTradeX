@@ -30,7 +30,7 @@ const StockDetail = () => {
   const currency = "INR";
   const paymentHandler = async (amount) => {
     // STEP 1 :
-    const response = await fetch(`http://localhost:3003/order`, {
+    const response = await fetch(`https://adya-project-hypertradex.onrender.com/order`, {
       method: "POST",
       body: JSON.stringify({
         amount,
@@ -57,7 +57,7 @@ const StockDetail = () => {
         };
 
         const validateRes = await fetch(
-          "http://localhost:3003/order/validate",
+          "https://adya-project-hypertradex.onrender.com/order/validate",
           {
             method: "POST",
             body: JSON.stringify(body),
