@@ -31,7 +31,7 @@ const Register = () => {
   const onSubmit = async (data) => {
     console.log(errors.email);
     console.log(data);
-    const { confirmpassword, ...res } = data;
+    // const { confirmpassword, ...res } = data;
 
     try {
       const res = await axiosInstance.post("/register", data);
