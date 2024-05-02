@@ -71,20 +71,20 @@ function Portfolio() {
               <p className="text-gray-300">No stocks available.</p>
             </div>
           ) : (
-            <div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-4">
-              {stockData.map((e) => {
-                console.log(e);
-                console.log(userValue.username)
-                return (
-                  <Link key={e.user_id} to={`/stocks/${e.user_id}`}>
-                    <div className="bg-slate-50 ring-1 shadow-md max-w-[200px] p-5 ring-slate-400">
-                      <img src={e.image_url} alt={userValue.name} className="h-9 w-9" />
-                      <p className="">{userValue.username}</p>
-                      <p>{e.recent_selling_price}</p>
-                    </div>
-                  </Link>
-                );
-              })}
+            <div className="w-[60%] mx-auto grid grid-cols-1 py-10">
+                <div className=" bg-white h-[70vh] max-w-96 ">
+                  <img alt="img" />
+                  {/* <img src={e.image_url} alt={userValue.name} className="h-9 w-9" /> */}
+                  
+
+                  <p className="text-xl"><span className="text-xl">UserName:</span>{userValue.username}</p>
+                  {/* <p>{e.recent_selling_price}</p> */}
+                  <p>Total Stocks You Have Brought ✨ {stockData.length}</p>
+                  <div className="flex justify-center items-center pt-20">
+                    <img className="h-44" src="https://ik.imagekit.io/0oeuxr64bc/undraw_bear_market_ania.svg?updatedAt=1714648438391"></img>
+
+                  </div>
+                </div>
             </div>
           )}
         </div>
