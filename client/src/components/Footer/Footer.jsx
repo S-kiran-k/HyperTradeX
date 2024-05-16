@@ -1,4 +1,5 @@
 import { insta, linkdin, facebook, arrow } from "../../assets/icons/Icons";
+import { Link } from "react-router-dom";
 function Footer() {
   return (
     <section className="bg-[#22153B] w-[100%]">
@@ -25,15 +26,15 @@ function Footer() {
           </div>
           <div className="flex flex-col justify-center items-center gap-2">
             <div className="flex flex-col items-start justify-center gap-5">
-              <button className="text-white flex gap-2 text-2xl">
+              <Link to="/Portfolio" className="text-white flex gap-2 text-2xl">
                 {arrow}Portfolio
-              </button>
-              <button className="text-white flex gap-2 text-2xl">
+              </Link>
+              <Link to="/stocks" className="text-white flex gap-2 text-2xl">
                 {arrow}Stock Prices
-              </button>
-              <button className="text-white flex gap-2 text-2xl">
+              </Link>
+              <Link to="/login" className="text-white flex gap-2 text-2xl">
                 {arrow}Login
-              </button>
+              </Link>
             </div>
           </div>
         </div>
