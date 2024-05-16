@@ -1,7 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import axiosInstance from "../../axios/axios";
 import RINGS from 'vanta/src/vanta.globe';
-import { Link } from "react-router-dom";
 import UserContext from "../Context/userContext"
 
 import "./Portfolio.css"

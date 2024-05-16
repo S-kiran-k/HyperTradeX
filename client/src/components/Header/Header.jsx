@@ -28,7 +28,7 @@ function Header() {
           <button className="flex" onClick={goToHome}>
             <img
               className="h-[20px]"
-              src="https://ik.imagekit.io/0oeuxr64bc/The%20Fox%20Is%20Black.jpeg?updatedAt=1714485417170"></img>
+              src="https://ik.imagekit.io/0oeuxr64bc/Stocks%20Website/The%20Fox%20Is%20Black.jpeg?updatedAt=1714639438873"></img>
             <p className="text-[#23153C]">HYPERTRADEX</p>
           </button>
         </div>

@@ -2,6 +2,14 @@ generator client {
   provider = "prisma-client-js"
 }
 
+
+// npm i 
+// Step 1 : Create .env
+// Step 2 : npx prisma migrate dev
+// Step 3 : npx prisma generate
+// Step 4 : npm start
+
+
 datasource db {
   provider  = "postgresql"
   url  	    = env("DATABASE_URL")
@@ -30,10 +38,8 @@ model Stock {
 
 model StockUser {
   id       String   @id @unique @default(cuid())
-  
   user     User     @relation(fields: [user_id], references: [user_id],onDelete: Cascade)
   user_id  String
-  
   stock    Stock    @relation(fields: [stock_id], references: [stock_id],onDelete: Cascade)
   stock_id String
 

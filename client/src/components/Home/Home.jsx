@@ -62,7 +62,7 @@ function Home() {
             <div className="flex justify-center items-center">
               <img
                 className=""
-                src="https://ik.imagekit.io/0oeuxr64bc/19197351-removebg-preview.png?updatedAt=1714489445903"
+                src="https://ik.imagekit.io/0oeuxr64bc/Stocks%20Website/19197351-removebg-preview.png?updatedAt=1714639431643"
                 alt="img"
               />
             </div>
