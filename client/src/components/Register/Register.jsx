@@ -2,11 +2,10 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axiosInstance from "../../axios/axios";
 import { useNavigate } from "react-router-dom";
-
+import { toast } from 'sonner';
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { toast } from "sonner";
 import "./Login.css"
 const registerSchema = z.object({
   username: z.string().min(1, { message: "Required" }),
@@ -19,11 +18,7 @@ const registerSchema = z.object({
 const Register = () => {
   const navigate = useNavigate();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: zodResolver(registerSchema),
     mode: "onBlur",
   });

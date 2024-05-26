@@ -3,9 +3,7 @@ const app = express();
 const cors = require("cors")
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
-
 const bcrypt = require("bcrypt");
-
 const Razorpay = require("razorpay");
 const crypto = require("crypto");
 require("dotenv").config();
