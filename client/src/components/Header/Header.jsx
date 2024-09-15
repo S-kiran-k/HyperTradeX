@@ -1,7 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import { search } from "../../assets/icons/Icons";
+import {  logo  } from "../../assets/icons/Icons"; // Add hamburger icon
+import { useState } from "react";
+import { Menu, Search, X } from "lucide-react";
+
 function Header() {
+  const [click, setClick] = useState(false); // State for mobile menu
   const navigate = useNavigate();
+
   const goToHome = () => {
     navigate("/");
   };
@@ -21,54 +26,100 @@ function Header() {
   const stock = () => {
     navigate("/stocks");
   };
+
+  // Toggle function for mobile menu
+  const toggleMenu = () => {
+    setClick(!click);
+  };
+
   return (
     <div className="2xl:container mx-auto">
       <div className="mx-auto grid grid-cols-1 md:grid-cols-3 h-[100%] p-2">
-        <div className="flex justify-start items-center px-2">
-          <button className="flex" onClick={goToHome}>
-            <img
-              className="h-[20px]"
-              src="https://ik.imagekit.io/0oeuxr64bc/Stocks%20Website/The%20Fox%20Is%20Black.jpeg?updatedAt=1714639438873"></img>
-            <p className="text-[#23153C]">HYPERTRADEX</p>
+        {/* Logo Section */}
+        <div className="flex justify-between items-center px-2 md:col-span-1">
+          <button className="flex items-center" onClick={goToHome}>
+            <img className="h-[20px]" src={logo} alt="Logo" />
+            <p className="text-[#23153C] ml-2">HYPERTRADEX</p>
           </button>
-        </div>
-        <div className="flex justify-center items-center gap-2">
-          <input
-            className="px-10 py-1 rounded-md text-left border-2 shadow-gray-300"
-            type="text"
-            placeholder="Enter the stock, company name"></input>
-          <button className="space-x-2" type="submit">
-            {search}
-          </button>
-        </div>
-        <div className="flex flex-row justify-center items-center gap-3">
+          {/* Hamburger / Close Menu Icon (visible on mobile) */}
           <button
-            className="transition duration-300 ease-in-out text-[#2e1c4a] "
-            onClick={goToHome}>
+            className="md:hidden text-[#23153C] focus:outline-none"
+            onClick={toggleMenu}
+          >
+            {click ? <X /> : <Menu />}{" "}
+            {/* Toggle between Menu and Close icons */}
+          </button>
+        </div>
+
+        {/* Search Bar */}
+        <div className="hidden md:flex justify-center items-center gap-2 col-span-1 px-16">
+          <input
+            className="w-full  px-1 py-1 rounded-md text-left border-2 shadow-gray-300"
+            type="text"
+            placeholder="Enter the stock, company name"
+          />
+          <button className="space-x-2" type="submit">
+            <Search />
+          </button>
+        </div>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex flex-row justify-center items-center gap-3 col-span-1">
+          <button
+            className="transition duration-300 ease-in-out text-[#2e1c4a]"
+            onClick={goToHome}
+          >
             Go to Home
           </button>
           <button
             className="transition duration-300 ease-in-out text-[#2e1c4a]"
-            onClick={portfolio}>
+            onClick={portfolio}
+          >
             Portfolio
           </button>
           <button
             className="transition duration-300 ease-in-out text-[#2e1c4a]"
-            onClick={stock}>
+            onClick={stock}
+          >
             Stock List
           </button>
           <button
             className="transition duration-300 ease-in-out bg-[#23153C] hover:bg-blue-600 text-white rounded-lg px-3 py-2"
-            onClick={Login}>
+            onClick={Login}
+          >
             Login
           </button>
           <button
             className="transition duration-300 ease-in-out bg-[#23153C] hover:bg-blue-600 text-white rounded-lg px-3 py-2"
-            onClick={ Register}>
+            onClick={Register}
+          >
             Register
           </button>
         </div>
       </div>
+
+      {/* Mobile Men~u */}
+      {click && (
+        <div className="md:hidden bg-[#23153C] text-white py-4">
+          <ul className="flex flex-col items-center gap-4">
+            <li>
+              <button onClick={goToHome}>Go to Home</button>
+            </li>
+            <li>
+              <button onClick={portfolio}>Portfolio</button>
+            </li>
+            <li>
+              <button onClick={stock}>Stock List</button>
+            </li>
+            <li>
+              <button onClick={Login}>Login</button>
+            </li>
+            <li>
+              <button onClick={Register}>Register</button>
+            </li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

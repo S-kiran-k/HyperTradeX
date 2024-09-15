@@ -29,3 +29,4 @@ export const arrow = (
     />
   </svg>
 );
+export const logo = "https://ik.imagekit.io/0oeuxr64bc/Stocks%20Website/The%20Fox%20Is%20Black.jpeg?updatedAt=1714639438873";
