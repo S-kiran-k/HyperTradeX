@@ -2,14 +2,17 @@ import { useEffect, useState } from "react";
 import axiosInstance from "../../axios/axios";
 import { Link } from "react-router-dom";
 import "./Stock.css"
+import Loader from "../Loader/Loader";
 
 function Stock() {
   const [stockData, setStockData] = useState([]);
-
+  const [loader , setLoader] = useState(true);
   const fetchData = async () => {
     try {
+      setLoader(false);
       const data = await axiosInstance.get("/stocks");
       setStockData(data.data.data);
+      setLoader(true)
     } catch (error) {
       console.log(error);
     }
@@ -19,7 +22,10 @@ function Stock() {
     fetchData();
   }, []);
 
-  return (
+
+return !loader ? (<>
+<Loader/>
+</>) :(
     <section className="py-5">
       <div className="2xl:container mx-auto">
         <div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -40,7 +46,7 @@ function Stock() {
         </div>
       </div>
     </section>
-  );
+    );
 }
 
 export default Stock;

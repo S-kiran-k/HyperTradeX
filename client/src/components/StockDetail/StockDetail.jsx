@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import axiosInstance from "../../axios/axios";
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../Context/userContext";
+import { Loader } from "lucide-react";
 
 const StockDetail = () => {
   const data = useContext(UserContext);
@@ -132,9 +133,9 @@ const StockDetail = () => {
       console.log(stock_id);
     }
   };
-  return stockDetailData.length === 0 ? (
+  return Object.keys(stockDetailData).length === 0 ? (
     <>
-      <p>Loading</p>
+      <Loader/>
     </>
   ) :(
     <>

@@ -8,6 +8,7 @@ import Register from "../components/Register/Register";
 import Stock from "../components/Stock/Stock";
 import StockDetail from "../components/StockDetail/StockDetail";
 import { Toaster } from 'sonner'
+import Loader from "../components/Loader/Loader";
 
 
 function Path() {
@@ -22,6 +23,7 @@ function Path() {
           <Route path="/stocks" element={<Stock />} />
           <Route path="/stocks/:stockId" element={<StockDetail />} />
           <Route path="/Portfolio" element={<Portfolio />} />
+          <Route path="/loading" element={<Loader/>} />
         </Routes>
         <Footer />
         <Toaster richColors position="top-right" closeButton />
